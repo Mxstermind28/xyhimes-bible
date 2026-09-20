@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Xyhime's Bible | His Word, Her Journey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+      <div class="cross">✝</div>
+
+      <div>
+        <h1>Xyhime's Bible</h1>
+        <p>His Word • Her Journey</p>
+      </div>
+    </div>
+
+    <nav>
+
+      <button class="nav-item active" data-page="home">
+        <span>⌂</span>
+        Home
+      </button>
+
+      <button class="nav-item" data-page="read">
+        <span>📖</span>
+        Read
+      </button>
+
+      <button class="nav-item" data-page="encouragement">
+        <span>♡</span>
+        I Need a Word
+      </button>
+
+      <button class="nav-item" data-page="favorites">
+        <span>★</span>
+        Favorite Verses
+      </button>
+
+      <button class="nav-item" data-page="notes">
+        <span>✎</span>
+        My Notes
+      </button>
+
+      <button class="nav-item" data-page="prayer">
+        <span>🙏</span>
+        Prayer Journal
+      </button>
+
+      <button class="nav-item" data-page="ajani">
+        <span>💜</span>
+        From Ajani
+      </button>
+
+    </nav>
+
+    <div class="sidebar-message">
+
+      <p>
+        “May every page remind you that you are loved by God
+        more deeply than words could ever explain.”
+      </p>
+
+      <span>— Ajani</span>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+
+  <main>
+
+    <header>
+
+      <button id="menuButton">☰</button>
+
+      <div class="header-title">
+        <small>PERSONAL BIBLE</small>
+        <strong>For Xyhime Lafayette</strong>
+      </div>
+
+      <button id="themeButton">☾</button>
+
+    </header>
+
+
+    <!-- HOME -->
+
+    <section class="page active" id="home">
+
+      <div class="hero">
+
+        <p class="eyebrow">GOOD MORNING, XYHIME</p>
+
+        <h2>
+          Begin today in
+          <em>His presence.</em>
+        </h2>
+
+        <p>
+          A personal place for Scripture, prayer,
+          encouragement and the promises of God.
+        </p>
+
+        <button onclick="showPage('read')">
+          Open Your Bible →
+        </button>
+
+      </div>
+
+
+      <div class="daily-card">
+
+        <div class="card-label">
+          VERSE FOR XYHIME TODAY
+        </div>
+
+        <blockquote id="dailyVerse"></blockquote>
+
+        <p id="dailyReference"></p>
+
+        <div class="verse-actions">
+
+          <button onclick="favoriteDailyVerse()">
+            ♡ Save
+          </button>
+
+          <button onclick="copyDailyVerse()">
+            ⧉ Copy
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <h3 class="section-heading">
+        What does your heart need today?
+      </h3>
+
+      <div class="emotion-grid">
+
+        <button onclick="openEmotion('peace')">
+          <span>🕊️</span>
+          <strong>Peace</strong>
+          <small>When your mind feels overwhelmed</small>
+        </button>
+
+        <button onclick="openEmotion('strength')">
+          <span>🌿</span>
+          <strong>Strength</strong>
+          <small>When you feel tired</small>
+        </button>
+
+        <button onclick="openEmotion('love')">
+          <span>💜</span>
+          <strong>Love</strong>
+          <small>Remember how deeply you are loved</small>
+        </button>
+
+        <button onclick="openEmotion('faith')">
+          <span>✨</span>
+          <strong>Faith</strong>
+          <small>When you need to trust God</small>
+        </button>
+
+        <button onclick="openEmotion('anxiety')">
+          <span>🌙</span>
+          <strong>Anxiety</strong>
+          <small>When worries feel heavy</small>
+        </button>
+
+        <button onclick="openEmotion('gratitude')">
+          <span>🌸</span>
+          <strong>Gratitude</strong>
+          <small>When your heart wants to give thanks</small>
+        </button>
+
+      </div>
+
+
+      <div class="love-note">
+
+        <div>💌</div>
+
+        <div>
+          <small>A NOTE FROM YOUR HUSBAND</small>
+
+          <h3>Xyhime, never forget this...</h3>
+
+          <p>
+            There will be days when life feels heavy,
+            but I hope this Bible reminds you that you never
+            carry life alone. God walks before you, beside you
+            and within you. And through every season, I will
+            continue walking beside you too.
+          </p>
+
+          <strong>Always yours, Ajani 💜</strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- READ -->
+
+    <section class="page" id="read">
+
+      <div class="page-title">
+        <small>THE WORD</small>
+        <h2>Read Scripture</h2>
+      </div>
+
+
+      <div class="reader-controls">
+
+        <select id="bookSelect"></select>
+
+        <select id="chapterSelect"></select>
+
+        <button onclick="loadChapter()">
+          Read
+        </button>
+
+      </div>
+
+
+      <div class="scripture-reader">
+
+        <div class="reader-header">
+
+          <div>
+            <small>NOW READING</small>
+            <h2 id="chapterTitle"></h2>
+          </div>
+
+          <button onclick="favoriteChapter()">
+            ♡
+          </button>
+
+        </div>
+
+        <div id="verses"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ENCOURAGEMENT -->
+
+    <section class="page" id="encouragement">
+
+      <div class="page-title">
+        <small>GOD'S PROMISES</small>
+        <h2>Xyhime, what are you feeling?</h2>
+
+        <p>
+          Choose what is on your heart and receive
+          Scripture for that moment.
+        </p>
+      </div>
+
+
+      <div class="emotion-large">
+
+        <button onclick="showEncouragement('peace')">
+          🕊️ I need peace
+        </button>
+
+        <button onclick="showEncouragement('strength')">
+          🌿 I need strength
+        </button>
+
+        <button onclick="showEncouragement('anxiety')">
+          🌙 I'm worried
+        </button>
+
+        <button onclick="showEncouragement('faith')">
+          ✨ My faith feels weak
+        </button>
+
+        <button onclick="showEncouragement('love')">
+          💜 I need to feel loved
+        </button>
+
+        <button onclick="showEncouragement('gratitude')">
+          🌸 I feel grateful
+        </button>
+
+      </div>
+
+      <div id="encouragementResult"></div>
+
+    </section>
+
+
+    <!-- FAVORITES -->
+
+    <section class="page" id="favorites">
+
+      <div class="page-title">
+        <small>YOUR COLLECTION</small>
+        <h2>Favorite Verses</h2>
+      </div>
+
+      <div id="favoriteList"></div>
+
+    </section>
+
+
+    <!-- NOTES -->
+
+    <section class="page" id="notes">
+
+      <div class="page-title">
+        <small>REFLECTIONS</small>
+        <h2>Xyhime's Notes</h2>
+      </div>
+
+      <div class="journal">
+
+        <input
+          id="noteTitle"
+          placeholder="What are you reflecting on?"
+        >
+
+        <textarea
+          id="noteText"
+          placeholder="Write what God placed on your heart..."
+        ></textarea>
+
+        <button onclick="saveNote()">
+          Save Reflection
+        </button>
+
+      </div>
+
+      <div id="notesList"></div>
+
+    </section>
+
+
+    <!-- PRAYER -->
+
+    <section class="page" id="prayer">
+
+      <div class="page-title">
+        <small>PRIVATE JOURNAL</small>
+        <h2>Prayer Journal</h2>
+
+        <p>
+          A quiet place for your conversations with God.
+        </p>
+      </div>
+
+      <div class="journal">
+
+        <input
+          id="prayerTitle"
+          placeholder="Prayer title"
+        >
+
+        <textarea
+          id="prayerText"
+          placeholder="Dear God..."
+        ></textarea>
+
+        <button onclick="savePrayer()">
+          Save Prayer
+        </button>
+
+      </div>
+
+      <div id="prayerList"></div>
+
+    </section>
+
+
+    <!-- FROM AJANI -->
+
+    <section class="page" id="ajani">
+
+      <div class="ajani-page">
+
+        <div class="heart">💜</div>
+
+        <small>FROM YOUR HUSBAND</small>
+
+        <h2>For Xyhime</h2>
+
+        <p>
+          My love, I wanted this to be more than a Bible
+          sitting on a screen.
+        </p>
+
+        <p>
+          I wanted it to be somewhere you could come when
+          you need peace, when you need strength, when you
+          need encouragement, and even when you simply want
+          to thank God for another beautiful day.
+        </p>
+
+        <p>
+          I pray that every verse you read reminds you of
+          God's purpose for your life and how precious you
+          are.
+        </p>
+
+        <p>
+          Whenever life becomes difficult, remember that
+          you don't have to understand the entire journey.
+          Keep trusting the One who already knows where the
+          road leads.
+        </p>
+
+        <div class="signature">
+
+          <span>Made with love for</span>
+
+          <strong>Xyhime Lafayette</strong>
+
+          <span>by your husband, Ajani.</span>
+
+        </div>
+
+
+        <div class="special-scripture">
+
+          <small>A VERSE I CHOSE FOR YOU</small>
+
+          <blockquote>
+            “She is clothed with strength and dignity;
+            and she shall rejoice in time to come.”
+          </blockquote>
+
+          <strong>Proverbs 31:25</strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
