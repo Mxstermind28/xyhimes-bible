@@ -1,0 +1,11 @@
+{
+  "name":"Xyhime's Bible — His Word, Her Journey",
+  "short_name":"Xyhime's Bible",
+  "description":"A personal King James Bible made with love for Xyhime Lafayette.",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#fbf7fd",
+  "theme_color":"#8966a3",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
